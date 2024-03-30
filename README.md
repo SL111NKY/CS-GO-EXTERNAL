@@ -1,6 +1,7 @@
 # ZZZETA CS:GO PRIVATE
 
 never detected cs:go private cheat for family and friends
+outdated since cs2
 
 ## Structure
 
