@@ -3,139 +3,10 @@
 #include "Entity.h"
 #include "quickmaths.h"
 #include "handle.h"
-#include "imgui/imgui.h"
-#include "imgui/imgui_internal.h"
+
 // 2023-02-16 10:15:15.147903900 UTC
 // 
 //INACTIVE
-class skinchanger {
-private:
-	bool isSkinchanger;
-	bool isRunning;
-public:
-	skinchanger(bool isSkinchanger = false) {
-		this->isSkinchanger = isSkinchanger;
-	}
-
-	void Start() {
-		this->isRunning = true;
-		
-		while (this->isRunning) {
-			//	const bool sollupdaten = Entity::getShouldUpdate(waffe);
-
-
-
-			//if (!Entity::getwaffe()){}
-			//	if (GetWeaponPaint() = 490) {}
-
-		//	for (int i = 0; i < 3; ++i) {
-
-				//pMemoryManage->WriteN<int>(Entity::getwaffe(i) + hazedumper::netvars::m_iItemIDHigh, -1);
-				//uintptr_t CurrentWeaponID = Entity::getWeaponIndex(i) + hazedumper::netvars::m_iItemDefinitionIndex;
-				//pMemoryManage->WriteN<uintptr_t>(Entity::getwaffe(i) + hazedumper::netvars::m_nFallbackPaintKit, 490);
-				//pMemoryManage->WriteN<uintptr_t>(Entity::getwaffe() + hazedumper::netvars::m_nFallbackPaintKit, 490);
-				//pMemoryManage->WriteN<float>(Entity::getwaffe(i) + hazedumper::netvars::m_flFallbackWear, 0.1f);
-
-				//	pMemoryManage->WriteN<int>(Entity::getwaffe() + hazedumper::netvars::m_nFallbackPaintKit, 962);
-				//	pMemoryManage->WriteN<int>(Entity::getClientstate() + hazedumper::signatures::clientstate_delta_ticks, -1);
-			//	std::cout << XorStr("Paint!") << std::endl;
-			//}
-
-		}
-	}
-};
-class rankwinrevealer {
-
-private:
-	bool isrankwinrevealer;
-	bool isRunning;
-public:
-
-
-	struct TPlayerInfo {
-		__int64         unknown;            //0x0000 
-		union
-		{
-			__int64       steamID64;          //0x0008 - SteamID64
-			struct
-			{
-				__int32     xuid_low;
-				__int32     xuid_high;
-			};
-		};
-		char            szName[128];        //0x0010 - Player Name
-		int             userId;             //0x0090 - Unique Server Identifier
-		char            szSteamID[20];      //0x0094 - STEAM_X:Y:Z
-		char            pad_0x00A8[0x10];   //0x00A8
-		unsigned long   iSteamID;           //0x00B8 - SteamID 
-		char            szFriendsName[128];
-		bool            fakeplayer;
-		bool            ishltv;
-		unsigned int    customfiles[4];
-		unsigned char   filesdownloaded;
-	};
-	rankwinrevealer(bool isrankwinrevealer = false) {
-		this->isrankwinrevealer = isrankwinrevealer;
-	}
-	void MouseMove(float x, float y)
-	{
-		INPUT Input = { 0 };
-		Input.type = INPUT_MOUSE;
-		Input.mi.dx = (LONG)x;
-		Input.mi.dy = (LONG)y;
-		Input.mi.dwFlags = MOUSEEVENTF_MOVE;
-		SendInput(1, &Input, sizeof(INPUT));
-	}
-	void Start() {
-
-		this->isRunning = true;
-		while (this->isRunning) {
-
-			/*
-			for (int i = 0; i <= 32; i++) {
-				DWORD clientState = pMemoryManage->ReadN<DWORD>(bEngine + hazedumper::signatures::dwClientState);
-				DWORD userInfoTable = pMemoryManage->ReadN<DWORD>(clientState + 0x5240);
-				DWORD items = pMemoryManage->ReadN<DWORD>(pMemoryManage->ReadN<DWORD>(userInfoTable + 0x40) + 0xC);
-				TPlayerInfo var = pMemoryManage->ReadN<TPlayerInfo>(pMemoryManage->ReadN<DWORD>(items + 0x28 + ((i - 1) * 0x34)));
-				std::string s = var.szName;
-				std::cout << i << ": " << s << std::endl;
-				//return var.szName;
-
-				const char* ranks[] = { "Unranked", "Silver I", "Silver II", "Silver III", "Silver IV", "Silver Elite", "Silver Elite Master", "Gold Nova I", "Gold Nova II", "Gold Nova III", "Gold Nova Elite", "Master Guardian I", "Master Guardian II", "Master Guardian Elite", "Distinguished Master Guardian", "Legendary Eagle", "Legendary Eagle Master", "Supreme Master First Class", "The Global Elite" };
-				unsigned a = Entity::getRanks(i);
-				if (Entity::getRanks(i) > sizeof(ranks) / sizeof(ranks[0])) {
-					//return NULL;
-				return ranks;
-				}
-		*/
-			if (GetKeyState(int('Z')) && 0x800) {
-		//	SetCursorPos (3, 3);
-			HWND window = FindWindow("Valve001", "Counter-Strike: Global Offensive - Direct3D 9");
-			if (window)
-			{
-				RECT rect = { 0 };
-				GetWindowRect(window, &rect);
-
-				SetForegroundWindow(window);
-				SetActiveWindow(window);
-				SetFocus(window);
-			//	Sleep(300);
-				//SetCursorPos(rect.right - 200, rect.bottom - 200);
-				std::cout << XorStr("gefunden") << std::endl;
-				//mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE, 1,3, 0, 0);
-				MouseMove(200, 200);
-
-			}
-			else {
-				std::cout << XorStr("nix") << std::endl;
-			}
-			}
-	}
-	}
-};
-
-
-
 
 
 // WriteProcessMemory durch Angle Berechnung XY/ Mouse/ Keyboardevents ersetzen :)
@@ -208,7 +79,7 @@ public:
 
 		while (this->isRunning = true) {
 			for (auto i = 1; i <= 64; ++i) {
-				Color color = Color{ 1.f, 0.f, 1.f };   //weitere Checks für Teammates, Leben (Anpassung Farbe (Health /100))
+				Color color = Color{ 1.f, 0.f, 1.f };   //weitere Checks fï¿½r Teammates, Leben (Anpassung Farbe (Health /100))
 				pMemoryManage->Write<Color>(Entity::getGlowObject() + (Entity::getGlowindex(i) * 0x38) + 0x8, color);
 				pMemoryManage->Write<bool>(Entity::getGlowObject() + (Entity::getGlowindex(i) * 0x38) + 0x28, true);
 				pMemoryManage->Write<bool>(Entity::getGlowObject() + (Entity::getGlowindex(i) * 0x38) + 0x29, false);
@@ -417,87 +288,7 @@ public:
 		}
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 	}
-				
-	/* another one
 
-	radar_base = mem.read_int(Offsets.game_module + Offsets.dwRadarBase)
-		c_hud_radar = mem.read_int(radar_base + 0x74)
-		name = mem.read_string(c_hud_radar + 0x300 + (0x174 * (self.id - 1)))
-		return name
-
-
-		and another one
-	for (int i = 0; i < maxPlayers; i++) {
-		DWORD radarBase;
-		ReadProcessMemory(processHandle, (LPCVOID)(clientDll.modBaseAddr + Offsets::signatures::dwRadarBase), &radarBase, sizeof(DWORD), NULL);
-		DWORD radarPointer;
-		ReadProcessMemory(processHandle, (LPCVOID)(radarBase + 0x6C), &radarPointer, sizeof(DWORD), NULL);
-		char name[128];
-		ReadProcessMemory(processHandle, (LPCVOID)(radarPointer + ((0x168 * (i + 1)) + 0x180)), &name, sizeof(name), NULL);
-	}
-
-	another one
-	char GetPlayerName(int i)
-{
-int RadarBase = RPM<int>(BASE_Client + RadarBaseOffset);
-int RadarPtr = RPM<int>(RadarBase + 0x74);
-int p = i+1;
-char Name[23] = RPM<char>(RadarPtr + p * 0x184 + 0x18);
-return Name;
-}
-
-another one
-class player_info_t
-{
-private:
-	char __pad[0x10];
-public:
-	char name[32];
-};
-
-uintptr_t dwClientState = Memory.Read< uintptr_t >(Engine() + Offsets.m_dwClientState);
-uintptr_t UserInfoTable = Memory.Read< uintptr_t >(dwClientState + Offsets.dwClientState_PlayerInfo);
-uintptr_t x = Memory.Read< std::uintptr_t >(Memory.Read< uintptr_t >(UserInfoTable + 0x40) + 0xC);
-player_info_t p = Memory.Read< player_info_t >(Memory.Read< uintptr_t >(x + 0x28 + 0x34 * i));
-
-printf("\n%s", p.name);
-
-
-
-another one
-
-		struct player_info
-		{
-			__int64         unknown;            //0x0000
-			union
-			{
-				__int64       steamID64;          //0x0008 - SteamID64
-				struct
-				{
-					__int32     xuid_low;
-					__int32     xuid_high;
-				};
-			};
-			char            szName[128];        //0x0010 - Player Name
-			int             userId;             //0x0090 - Unique Server Identifier
-			char            szSteamID[20];      //0x0094 - STEAM_X:Y:Z
-			char            pad_0x00A8[0x10];   //0x00A8
-			unsigned long   iSteamID;           //0x00B8 - SteamID
-			char            szFriendsName[128];
-			bool            fakeplayer;
-			bool            ishltv;
-			unsigned int    customfiles[4];
-			unsigned char   filesdownloaded;
-		} var;
-
-		//memset(&var, 0, sizeof(var));
-		DWORD clientState = Hacks::mem.Read<DWORD>(dwEngine + dwClientState);
-		DWORD userInfoTable = Hacks::mem.Read<DWORD>(clientState + dwClientState_PlayerInfo);
-		DWORD items = Hacks::mem.Read<DWORD>(Hacks::mem.Read<DWORD>(userInfoTable + 0x40) + 0xC);
-				var = Hacks::mem.Read<player_info>(Hacks::mem.Read<DWORD>(items + 0x28 + ((i - 1) * 0x34)));
-				std::string name = var.szName*/
-
-}; 
 class BHOP {
 private:
 	bool isBhop;
@@ -556,12 +347,9 @@ public:
 	
 
 
-
-
-
 int main()
 {
-	title = XorStr("SLNKYHOOK");
+	title = XorStr("ZZZETA");
 
 	SetConsoleTitleA(title.c_str());
 
@@ -593,7 +381,7 @@ int main()
 	{
 		if (GetAsyncKeyState(VK_DELETE) & 0x8000)
 		{
-			std::cout << XorStr("Closing SLNKY.exe!") << std::endl;
+			std::cout << XorStr("Closing ZZZETA.exe!") << std::endl;
 			Beep(500, 200);
 
 			//	Bhop.Stop();
